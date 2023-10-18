@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .card-container {
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 400px;
+            height: 400px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            text-align: justify;
+            padding: 10px;
+        }
+
+        .card-front {
+            background-color: #fff;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .card-front h1, .card-front p {
+            margin: 1;
+        }
+
+        .card-back {
+            background-color: #fff;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transform: rotateY(180deg);
+        }
+
+        .card-back img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .love-text {
+            text-align: center;
+            font-weight: bold;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        .photo-caption {
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <div class="card" id="card">
+            <div class="card-front" id="front">
+                <h1>Hai Sayang Wedosnya Anna Gantengku Sayang! My Lup🖤</h1>
+                <p>
+                    Ciee, udah 20 Tahun. Selamat yaa Nanda Sayang🥰
+                </p>
+            </div>
+            <div class="card-back" id="back" style="display:none;">
+                <p class="love-text">COBA PENCET FOTONYA YANG</p>
+                <img src="foto/1.jpg" alt="Foto Romantis 1" onclick="changePhoto()">
+                <p class="photo-caption">Ini wedos pas date pertama, wajahnya negesi yaa🥺</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const card = document.getElementById('card');
+        const front = document.getElementById('front');
+        const back = document.getElementById('back');
+        const photos = [
+            "foto/1.jpg",
+            "foto/2.jpg",
+            "foto/3.webp",
+            "foto/4.webp",
+            "foto/5.webp",
+            "foto/6.jpg",
+            "foto/7.jpg",
+            "foto/8.jpg",
+            "foto/9.jpg",
+            "foto/10.jpg",
+            "foto/11.jpg",
+            "foto/12.jpg",
+            "foto/13.jpg",
+            "foto/14.jpg",
+            "foto/15.jpg",
+            "foto/16.jpg",
+            "foto/17.jpg",
+            "foto/18.jpg",
+            "foto/19.jpg"
+        ];
+
+        let photoIndex = 0;
+        let imgElement;
+        let caption;
+
+        function changePhoto() {
+            photoIndex = (photoIndex + 1) % photos.length;
+            const newPhoto = photos[photoIndex];
+            imgElement.src = newPhoto;
+            caption.textContent = getPhotoCaption(photoIndex);
+        }
+
+        function getPhotoCaption(index) {
+            const captions = [
+                "Ini wedos pas date pertama, wajahnya negesi yaa🥺",
+                "Surya selfi dihpku ges, lucu banget senyumnya🥰",
+                "Hayoo ini abis ngapain yaa??",
+                "Lagi ngapain banggg hahaha",
+                "Kita lagi nyasar di Malang ges",
+                "Ini surya comel banget sihh👉🏻👈🏻",
+                "Surya kirim foto emoet ges🥺",
+                "Mandi dulu bang",
+                "Yang ini Surya sok imoet ges🤗",
+                "Pacarku ganteng bangettt iniii😍",
+                "Surya udah gendut pipinya disini🥺",
+                "Ini juga diMalang ges, aku cantik bangettt🤗",
+                "Rambutnya lucu polll",
+                "Pacarku udah gendut ges, kerjaannya mam mulu😣",
+                "Ini waktu tak musuhin ges, kok bisa vc bang? senyumnya manis yaa😋",
+                "Ini juga masih musuhan loh, kok sleepcall bang🤔",
+                "Cuman ini ges foto yang dipotoin😃",
+                "Lucu banget tidur bareng, kapan tidur bareng lagi yangg??",
+                "Ini critanya Anna lagi sedih trus dihibur ges💜"
+            ];
+            return captions[index];
+        }
+
+        const text = "Sayangkuuuu Selamat Ulang Tahun, Mas Wedos! Hari ini tuh hari yang spesial, dan aku pengen membuatnya lebih istimewa lagi dengan kartu khusus ini, jangan curang ya!. Aku pengen kamu denger crita betapa beruntungnya Anna punya Surya dalam hidupnya. Smua kenangan kita, bagiku semuanya petualangan gila, smua hal yang aku lewati sama kamu cuma dihabisno buat ketawa, makasii yaa sayang💜. Aku gabakal mau lupain semuanyaa. Aku berharap bisa berbagi lebih banyak momen seru sama kamu kedepannya. Di tahun ini, aku harap kamu terus menjadi diri yang mengagumkan yang slalu membuatku terpesona. Jangan pernah lupain kalo aku selalu ada di sini buat dukung kamu dalam setiap langkah perjalanan hidupmu. Makasii buat semua tawa, pelukan hangat, dan cintamu yang tulus. Aku sangat berterima kasih memiliki kamu sebagai pacarkuu. Aku janji untuk slalu mencintaimu dengan segenap hatiku hehe. Semoga tahun ini membawa banyak kebahagiaan, rezeki, kesehatan, petualangan baru, dan cinta yang tak berkesudahan. Semangat sayang, aku cinta kamu👉🏻👈🏻";
+
+        let isFlipped = false;
+        let textIndex = 0;
+
+        function typeText() {
+            front.style.cursor = 'default';
+            front.innerHTML += text[textIndex];
+            textIndex++;
+
+            if (textIndex < text.length) {
+                setTimeout(typeText, 30);
+            } else {
+                setTimeout(() => {
+                    back.style.display = 'block';
+                    back.style.cursor = 'pointer';
+                    card.classList.add('is-flipped');
+                    imgElement = back.querySelector('img');
+                    caption = back.querySelector('.photo-caption');
+                }, 1000);
+            }
+        }
+
+        card.addEventListener('click', function () {
+            if (!isFlipped) {
+                isFlipped = true;
+                typeText();
+            }
+        });
+    </script>
+</body>
+</html>
